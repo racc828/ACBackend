@@ -24,12 +24,12 @@ class Api::V1::ProjectsController < ApplicationController
     render json: projectJson
   end
 
-  # def update
-  #   project = Project.find_by(id: params[:id])
-  #   project.update(project_params)
-  #   render json: project
-  # end
-  #
+  def update
+    project = Project.find_by(id: params[:id])
+    project.update(project_params)
+    render json: project
+  end
+  
   def destroy
     project = Project.find_by(id: params[:id])
     project.destroy
