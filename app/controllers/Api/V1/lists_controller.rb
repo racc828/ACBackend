@@ -29,12 +29,12 @@ class Api::V1::ListsController < ApplicationController
   #   render json: list
   # end
   #
-  # def destroy
-  #   list = List.find_by(id: params[:id])
-  #   list.destroy
-  #   lists = List.all
-  #   render json: lists
-  # end
+  def destroy
+    list = List.find_by(id: params[:id])
+    list.destroy
+    lists = List.all
+    render json: lists
+  end
 
   private
 
