@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 			resources :users, :projects, :lists, :tasks
       post '/sessions', to: 'sessions#create'
       get '/sessions/current_user', to: 'sessions#show'
+      post '/projects/add_user', to: 'projects#add_user'
 		end
 	end
 end

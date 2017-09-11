@@ -29,7 +29,15 @@ class Api::V1::ProjectsController < ApplicationController
     project.update(project_params)
     render json: project
   end
-  
+
+  def add_user
+    project = Project.find_by(id: params[:id])
+    user = User.find(params[:user_id])
+    project.users << user
+    render json: user
+
+  end
+
   def destroy
     project = Project.find_by(id: params[:id])
     project.destroy
