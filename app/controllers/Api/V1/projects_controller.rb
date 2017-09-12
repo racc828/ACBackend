@@ -35,7 +35,6 @@ class Api::V1::ProjectsController < ApplicationController
     user = User.find(params[:user_id])
     project.users << user
     render json: user
-
   end
 
   def destroy
