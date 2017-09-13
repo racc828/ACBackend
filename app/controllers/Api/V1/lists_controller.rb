@@ -14,13 +14,13 @@ class Api::V1::ListsController < ApplicationController
 
   def show
     list = List.find_by(id: params[:id])
-    listJson = {
-      id:list.id,
-      name: list.name,
-      project_id: list.project_id,
-      tasks: list.tasks
-    }
-    render json: listJson
+    # listJson = {
+    #   id:list.id,
+    #   name: list.name,
+    #   project_id: list.project_id,
+    #   tasks: list.tasks
+    # }
+    render json: list
   end
 
   def update
