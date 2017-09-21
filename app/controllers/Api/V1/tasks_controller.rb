@@ -40,6 +40,14 @@ class Api::V1::TasksController < ApplicationController
     render json: task
   end
 
+  def delete_user
+    user = User.find(params[:user_id])
+    task = Task.find(params[:task_id])
+    join = UserTask.all.find { |user_task| user_task.task_id === params[:task_id] && user_task.user_id === params[:user_id] }
+    join.destroy
+    render json: task.users
+  end
+
   def destroy
     task = Task.find_by(id: params[:id])
     task.destroy

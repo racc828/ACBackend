@@ -14,12 +14,8 @@ class Api::V1::ListsController < ApplicationController
 
   def show
     list = List.find_by(id: params[:id])
-    # listJson = {
-    #   id:list.id,
-    #   name: list.name,
-    #   project_id: list.project_id,
-    #   tasks: list.tasks
-    # }
+    project = Project.find_by(id: list.project_id)
+    projectusers = project.users.map { |user| user.id }
     render json: list
   end
 
