@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get '/sessions/current_user', to: 'sessions#show'
       post '/projects/add_user', to: 'projects#add_user'
       post '/tasks/add_user', to: 'tasks#add_user'
+      post '/projects/delete_user', to: 'projects#delete_user'
 		end
 	end
 end

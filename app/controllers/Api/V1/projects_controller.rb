@@ -37,6 +37,14 @@ class Api::V1::ProjectsController < ApplicationController
     render json: user
   end
 
+  def delete_user
+    user = User.find(params[:user_id])
+    project = Project.find(params[:project_id])
+    join = Collaborator.all.find { |collaborator| collaborator.project_id === params[:project_id] && collaborator.user_id === params[:user_id] }
+    join.destroy
+    render json: project.users
+  end
+
   def destroy
     project = Project.find_by(id: params[:id])
     project.destroy
