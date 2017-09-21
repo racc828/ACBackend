@@ -14,17 +14,17 @@ class Api::V1::TasksController < ApplicationController
 
   def show
     task = Task.find_by(id: params[:id])
-    tasksJson = {
-      completed: task.completed,
-      id: task.id,
-      description:task.description,
-      list_id: task.list_id,
-      name: task.name,
-      positionX: task.positionX,
-      positionY: task.positionY,
-      users: task.users
-    }
-    render json: tasksJson
+    # tasksJson = {
+    #   completed: task.completed,
+    #   id: task.id,
+    #   description:task.description,
+    #   list_id: task.list_id,
+    #   name: task.name,
+    #   positionX: task.positionX,
+    #   positionY: task.positionY,
+    #   users: task.users
+    # }
+    render json: task
   end
 
   def add_user
