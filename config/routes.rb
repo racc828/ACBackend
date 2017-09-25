@@ -8,6 +8,7 @@ Rails.application.routes.draw do
       post '/tasks/add_user', to: 'tasks#add_user'
       post '/projects/delete_user', to: 'projects#delete_user'
       post '/tasks/delete_user', to: 'tasks#delete_user'
+      post '/tasks/get_tasks', to: 'tasks#get_tasks'
 		end
 	end
 end

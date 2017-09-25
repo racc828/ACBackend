@@ -33,8 +33,12 @@ class Api::V1::ProjectsController < ApplicationController
   def add_user
     project = Project.find_by(id: params[:id])
     user = User.find(params[:user_id])
-    project.users << user
-    render json: user
+    if project.users.include?(user)
+      render json: { error: 'User Exists In Project Already' }
+    else
+      project.users << user
+      render json: user
+    end
   end
 
   def delete_user
