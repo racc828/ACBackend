@@ -25,6 +25,7 @@ class Api::V1::ListsController < ApplicationController
 
   def destroy
     list = List.find_by(id: params[:id])
+    list.tasks.map{|task| task.destroy}
     list.destroy
     lists = List.all
     render json: lists
