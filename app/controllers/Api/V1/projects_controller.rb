@@ -59,7 +59,11 @@ class Api::V1::ProjectsController < ApplicationController
 
   def destroy
     project = Project.find_by(id: params[:id])
-    project.lists.map{|list| list.destroy}
+    project.lists.map{|list|
+      list.tasks.map {|task|
+        task.destroy
+      }
+    }
     project.destroy
     projects = Project.all
     render json: projects
