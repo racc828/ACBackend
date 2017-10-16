@@ -54,6 +54,7 @@ class Api::V1::TasksController < ApplicationController
 
   def get_tasks
     user = User.find(params[:user_id])
+    byebug
     render json: user.tasks
   end
 
